@@ -30,7 +30,11 @@ public class StudentService {
         studentRepo.deleteById(id);
     }
 
-//    public void update(Student std){
-//        studentRepo.
-//    }
+    public void update(int id,Student std){
+        Student student = studentRepo.findById(id).get();
+        student.setName(std.getName());
+        student.setAge(std.getAge());
+        student.setCgpa(std.getCgpa());
+        studentRepo.save(student);
+    }
 }
